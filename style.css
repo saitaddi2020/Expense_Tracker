@@ -1,0 +1,162 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:'Playfair Display', serif;
+}
+body{
+    background-image: linear-gradient(90deg, #93A5CF , #E4EfE9);
+}
+#category{
+    height: 26px;
+    padding-left: 5px;
+    background-color: white;
+    border-radius: 5px;
+}
+h1,h2{
+    margin-top: 50px;
+    margin-bottom: 20px;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    padding-left: 600px;
+    color: rgb(3, 3, 3);
+    font-weight: bold;
+
+}
+.input-section{
+display: inline-flex;
+justify-content: space-between;
+flex-direction: row;
+align-items: center;
+margin-top: 50px;
+margin-left: 300px;
+}
+.input-section label{
+    margin-left: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-right: 10px;
+}
+.input-section input[type="number"], .input-section input[type = "date"]{
+padding: 5px;
+margin-right: 10px;
+border-radius: 5px;
+border: none;
+outline: none;
+}
+.input-section button{
+    font-size: 1.4em;
+  padding: 0.6em 0.8em;
+  border-radius: 0.5em;
+  border: none;
+  background-color: #000;
+  color: #fff;
+  cursor: pointer;
+  box-shadow: 2px 2px 3px #000000b4;
+  position: relative;
+  padding: 3px;
+  background: linear-gradient(90deg, #03a9f4, #f441a5);
+  border-radius: 7px;
+  transition: all 0.4s ease;
+}
+.input-section button::before{
+    content: "";
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  border-radius: 0.9em;
+  z-index: -10;
+  filter: blur(0);
+  transition: filter 0.4s ease;
+}
+.input-section button:hover::before {
+    background: linear-gradient(90deg, #03a9f4, #f441a5);
+    filter: blur(1.2em);
+  }
+.input-section button:active::before {
+    filter: blur(0.2em);
+  }
+.expenses-list{
+    margin: 50px;
+    display: none;
+}
+table{
+    border-collapse: separate;
+    width: 100%;
+    border-radius: 2px;
+    overflow: hidden;
+    border-spacing: 0;
+}
+th,td{
+    border: 2px solid rgb(18, 17, 17);
+    text-align: left;
+    padding: 5px;
+   border-radius: 2px;
+    text-align: left;
+}
+th{
+    background-color: rgb(47, 128, 175);
+    color: #fff;
+
+}
+tfoot td{
+    font-weight: bold;
+}
+button{
+    width: 50px;
+ height: 25px;
+ cursor: pointer;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ background: red;
+ border: none;
+ border-radius: 5px;
+ box-shadow: 1px 1px 3px rgba(0,0,0,0.15);
+ background: #e62222;
+ color: white;
+}
+.delete-btn .text {
+    transform: translateX(35px);
+    color: white;
+    font-weight: bold;
+   }
+
+button .icon {
+    position: absolute;
+    border-left: 1px solid #c41b1b;
+    transform: translateX(110px);
+    height: 40px;
+    width: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+button svg {
+    width: 15px;
+    fill: #eee;
+   }
+   
+button:hover {
+    background: #ff3636;
+   }
+   
+button:hover .text {
+    color: transparent;
+   }
+   
+button:hover .icon {
+    width: 150px;
+    border-left: none;
+    transform: translateX(0);
+   }
+   
+button:focus {
+    outline: none;
+   }
+   
+button:active .icon svg {
+    transform: scale(0.8);
+   }

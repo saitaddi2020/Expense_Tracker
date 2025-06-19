@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Income vs Expense Chart</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <h1>Income & Expense Overview</h1>
+  
+<div class="chart-container">
+  <canvas id="incomeVsExpenseChart"></canvas>
+  <canvas id="expenseByCategoryChart"></canvas>
+</div>
+
+
+  <button class="back-btn" onclick="window.location.href='index.html'">⬅ Back to Tracker</button>
+
+  <script>
+    const incomeData = JSON.parse(localStorage.getItem("income")) || [];
+    const expenseData = JSON.parse(localStorage.getItem("expense")) || [];
+
+    const totalIncome = incomeData.reduce((acc, item) => acc + Number(item.amount), 0);
+    const totalExpense = expenseData.reduce((acc, item) => acc + Number(item.amount), 0);
+
+    const ctx1 = document.getElementById("incomeVsExpenseChart").getContext("2d");
+    const ctx2 = document.getElementById("expenseByCategoryChart").getContext("2d");
+
+    if (totalIncome === 0 && totalExpense === 0) {
+      document.getElementById("incomeVsExpenseChart").style.display = "none";
+      document.getElementById("expenseByCategoryChart").style.display = "none";
+      const msg = document.createElement("p");
+      msg.className = "message";
+      msg.textContent = "No transaction data available to generate charts.";
+      document.body.appendChild(msg);
+    } else {
+      // Income vs Expense Pie Chart
+      new Chart(ctx1, {
+        type: "pie",
+        data: {
+          labels: ["Income", "Expense"],
+          datasets: [{
+            data: [totalIncome, totalExpense],
+            backgroundColor: ["#28a745", "#dc3545"],
+            borderColor: "#fff",
+            borderWidth: 2
+          }]
+        },
+        options: {
+          responsive: true,
+          plugins: {
+            legend: { position: 'bottom' },
+            tooltip: {
+              callbacks: {
+                label: function (context) {
+                  const label = context.label || '';
+                  const value = context.raw || 0;
+                  return `${label}: ₹${value.toLocaleString()}`;
+                }
+              }
+            }
+          }
+        }
+      });
+
+      // Expenses by Category Pie Chart
+      const categoryMap = {};
+      expenseData.forEach(item => {
+        categoryMap[item.category] = (categoryMap[item.category] || 0) + Number(item.amount);
+      });
+
+      const categoryLabels = Object.keys(categoryMap);
+      const categoryAmounts = Object.values(categoryMap);
+
+      if (categoryLabels.length > 0) {
+        new Chart(ctx2, {
+          type: "pie",
+          data: {
+            labels: categoryLabels,
+            datasets: [{
+              data: categoryAmounts,
+              backgroundColor: [
+                "#e6194b", "#3cb44b", "#ffe119", "#4363d8", "#f58231",
+                "#911eb4", "#46f0f0", "#f032e6", "#bcf60c", "#fabebe"
+              ],
+              borderColor: "#fff",
+              borderWidth: 2
+            }]
+          },
+          options: {
+            responsive: true,
+            plugins: {
+              title: {
+                display: true,
+                text: "Expenses by Category"
+              },
+              legend: {
+                position: "bottom"
+              },
+              tooltip: {
+                callbacks: {
+                  label: function (context) {
+                    const label = context.label || '';
+                    const value = context.raw || 0;
+                    return `${label}: ₹${value.toLocaleString()}`;
+                  }
+                }
+              }
+            }
+          }
+        });
+      }
+    }
+  </script>
+</body>
+</html>

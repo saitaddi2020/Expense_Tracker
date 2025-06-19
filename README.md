@@ -5,7 +5,7 @@ A responsive and user-friendly Expense Tracker web application built using HTML,
 🚀 Features
 ✅ Add and manage Income or Expense transactions ✅ Categorize transactions (e.g., Food, Rent, Salary) ✅ Edit or delete any existing entry ✅ Filter by category or month ✅ View balance summary (Total Income − Expense) ✅ Generate Pie Charts:
 Income vs Expense
-Expense by Category ✅ Responsive design (Mobile, Tablet, Desktop) ✅ Dark mode toggle 🌙 ✅ Export data to CSV ✅ Live toast notifications for updates ✅ Confirmation popup before delete ✅ Clean UI with modern styling
+Expense by Category ✅ Responsive design (Mobile, Tablet, Desktop) ✅ Export data to CSV ✅ Live toast notifications for updates ✅ Confirmation popup before delete ✅ Clean UI with modern styling
 
 🛠 Technologies Used
 HTML5

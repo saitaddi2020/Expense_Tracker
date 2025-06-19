@@ -1,0 +1,35 @@
+Open index.html in any browser (no server required).
+Select:
+Type: Income or Expense
+Fill in: Date, Description, Category, Amount
+Click Add to save the transaction.
+To edit, click ✏️ next to the transaction → form will auto-fill → click Update.
+To cancel editing, click the Cancel button.
+To delete, click ❌ and confirm the popup.
+Use Filter to narrow down by category or month.
+Click 📊 View Detailed Chart to open visualizations.
+Use Export CSV to download all your data.
+
+  📈 Chart Page (chart.html)
+Shows Income vs Expense Pie Chart
+Shows Expense by Category Pie Chart
+Auto-updated from your localStorage data
+
+💾 Data Storage
+Uses localStorage — your data stays in the browser.
+No server or backend required.
+
+  📱 Responsive
+Fully responsive across:
+📱 Mobile phones
+📟 Tablets
+🖥️ Desktops
+
+✅ Coming Soon (Ideas)
+✅ Download PDF report
+✅ Firebase sync (cloud saving)
+✅ Monthly budget goal alert
+✅ Progressive Web App (PWA) support
+
+👨‍💻 Author
+Designed & Developed by Taddi Sai
